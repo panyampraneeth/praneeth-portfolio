@@ -1,13 +1,18 @@
 // Wait for DOM content to load
 document.addEventListener('DOMContentLoaded', () => {
-    // Smooth scrolling for nav links
+    // Smooth scrolling for nav links with header offset
     document.querySelectorAll('nav a').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
             const section = document.querySelector(this.getAttribute('href'));
             console.log('Section found:', section);
             if (section) {
-                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                const headerHeight = document.querySelector('header').offsetHeight; // Get header height
+                const sectionTop = section.getBoundingClientRect().top + window.scrollY; // Get section's absolute position
+                window.scrollTo({
+                    top: sectionTop - headerHeight, // Offset by header height
+                    behavior: 'smooth'
+                });
             } else {
                 console.warn('Section not found for href:', this.getAttribute('href'));
             }
