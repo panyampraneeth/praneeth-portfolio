@@ -215,7 +215,8 @@ section {
     background: var(--card-bg);
     border-radius: 12px;
     box-shadow: var(--shadow);
-    margin-bottom: 2rem;
+    margin-bottom: 3.5rem; /* Consistent spacing between all sections */
+    margin-top: 1rem; /* Maintain clearance from header or previous section */
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
@@ -260,6 +261,7 @@ section p {
     border-radius: 8px;
     box-shadow: var(--shadow);
     transition: transform 0.3s;
+    animation: slideRight 1s ease-out; /* Apply slideRight animation to skill cards */
 }
 
 .skill-card:hover {
@@ -286,7 +288,7 @@ section p {
     background: var(--card-bg);
     border-radius: 12px;
     box-shadow: var(--shadow);
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 }
 
 #projects h2 {
@@ -308,6 +310,7 @@ section p {
     border-radius: 8px;
     box-shadow: var(--shadow);
     transition: transform 0.3s, box-shadow 0.3s;
+    animation: fadeIn 1s ease-out; /* Apply fadeIn animation to project cards */
 }
 
 .project-card:hover {
@@ -338,7 +341,7 @@ section p {
 }
 
 .project-link:hover {
-    background: #c0392b; /* Darker red for consistency */
+    background: #c0392b;
 }
 
 /* Resume Section */
@@ -439,7 +442,7 @@ footer {
     color: white;
     text-align: center;
     padding: 1.5rem;
-    margin-top: 2rem;
+    margin-top: 3.5rem;
 }
 
 /* 6. Buttons (Scroll-to-Top) */
@@ -485,6 +488,26 @@ footer {
     }
 }
 
+@keyframes slideRight {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
 .animate {
     opacity: 0;
     transition: opacity 0.5s, transform 0.5s;
@@ -497,6 +520,14 @@ footer {
 
 .animate.slide-up {
     transform: translateY(50px);
+}
+
+.fadeIn {
+    animation: fadeIn 1s ease-out;
+}
+
+.slideRight {
+    animation: slideRight 1s ease-out;
 }
 
 /* 8. Responsive Design */
